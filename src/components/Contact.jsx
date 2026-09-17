@@ -1,290 +1,278 @@
 import {
-     FaGithub,
-     FaLinkedinIn,
-     FaEnvelope,
-     FaPhone,
-     FaInstagram,
+  FaGithub,
+  FaLinkedinIn,
+  FaEnvelope,
+  FaPhone,
 } from "react-icons/fa";
 import { IoCheckmarkDoneCircle } from "react-icons/io5";
 import { FaLocationDot } from "react-icons/fa6";
+import { FiSend } from "react-icons/fi";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 
 function Contact() {
-     const [formData, setFormData] = useState({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-     });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
 
-     const [loading, setLoading] = useState(false);
-     const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
-     const handleChange = (e) => {
-          setFormData({
-               ...formData,
-               [e.target.name]: e.target.value,
-          });
-     };
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-     const handleSubmit = async (e) => {
-          e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-          try {
-               setLoading(true);
+    try {
+      setLoading(true);
 
-               await emailjs.send(
-                    "service_vbf3vq9",
-                    "template_vrqwtv8",
-                    {
-                         name: formData.name,
-                         email: formData.email,
-                         title: formData.subject,
-                         message: formData.message,
-                    },
-                    "iV1uBCiJB63rHNjD-"
-               );
+      await emailjs.send(
+        "service_vbf3vq9",
+        "template_vrqwtv8",
+        {
+          name: formData.name,
+          email: formData.email,
+          title: formData.subject,
+          message: formData.message,
+        },
+        "iV1uBCiJB63rHNjD-"
+      );
 
-               setSuccess(true);
+      setSuccess(true);
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
 
-               setFormData({
-                    name: "",
-                    email: "",
-                    subject: "",
-                    message: "",
-               });
+      setTimeout(() => {
+        setSuccess(false);
+      }, 5000);
+    } catch {
+      alert("Failed to send message");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-               setTimeout(() => {
-                    setSuccess(false);
-               }, 5000);
-          } catch (error) {
-               // console.log("EmailJS Error:", error);
-               // console.log("Status:", error?.status);
-               // console.log("Text:", error?.text);
+  return (
+    <section id="contact" className="relative overflow-hidden bg-background py-10 md:py-14">
+      {/* Background Ambient Glows */}
+      <div className="pointer-events-none absolute -left-16 top-1/4 h-60 w-60 rounded-full bg-primary/15 blur-[90px]" />
+      <div className="pointer-events-none absolute -right-16 bottom-10 h-60 w-60 rounded-full bg-primary-dark/20 blur-[90px]" />
 
-               // alert(error?.text || "Failed to send message");
+      <div className="container relative mx-auto max-w-4xl px-4 sm:px-6">
+        <div className="grid items-stretch gap-4 sm:gap-5 lg:grid-cols-2">
 
-               alert("Failed to send message");
-          } finally {
-               setLoading(false);
-          }
-     };
+          {/* Left Box - Compact Details */}
+          <div className="relative flex h-full flex-col justify-between rounded-2xl border border-border/80 bg-card/60 p-4 backdrop-blur-md transition-all duration-300 hover:border-primary/40 sm:p-5">
+            <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
 
-     return (
-          <section id="contact" className="bg-background py-20">
-               <div className="mx-auto max-w-6xl px-6">
-                    <div className="grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+            <div>
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-surface/70 px-2.5 py-0.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_6px_#D946EF]" />
+                <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary-light">
+                  Get In Touch
+                </span>
+              </div>
 
-                         {/* Left Content */}
-                         <div>
-                              <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-                                   Get In Touch
-                              </p>
+              <h2 className="mt-2 text-xl font-bold leading-tight text-heading sm:text-2xl">
+                Let's talk about your{" "}
+                <span className="bg-gradient-to-r from-primary via-primary-light to-white bg-clip-text text-transparent">
+                  next project.
+                </span>
+              </h2>
 
-                              <h2 className="max-w-lg text-4xl font-bold leading-tight text-heading md:text-5xl">
-                                   Let's talk about your{" "}
-                                   <span className="text-primary">next project.</span>
-                              </h2>
+              <p className="mt-1.5 text-xs leading-relaxed text-text/80">
+                Have an idea, project, or an opportunity? Feel free to reach out. I'd love to collaborate.
+              </p>
 
-                              <p className="mt-4 max-w-md leading-7 text-text-muted">
-                                   Have an idea, a project, or an opportunity you'd like to
-                                   discuss? Feel free to reach out. I'd love to hear from you.
-                              </p>
+              {/* Contact Info Items */}
+              <div className="mt-4 space-y-2">
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=koratkrupa8@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-2.5 rounded-xl border border-border/70 bg-surface/60 p-2.5 transition-all duration-200 hover:border-primary/50 hover:bg-surface"
+                >
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-card text-primary transition-all duration-200 group-hover:bg-primary group-hover:text-white">
+                    <FaEnvelope size={13} />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-[9px] font-semibold uppercase tracking-wider text-text-muted">
+                      Email
+                    </p>
+                    <p className="truncate text-xs font-medium text-heading group-hover:text-primary-light">
+                      koratkrupa8@gmail.com
+                    </p>
+                  </div>
+                </a>
 
-                              {/* Contact Info */}
-                              <div className="mt-6 space-y-4">
-                                   <div className="flex items-center gap-4">
-                                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:text-white">
-                                             <FaEnvelope size={18} />
-                                        </div>
+                <a
+                  href="tel:+919313170134"
+                  className="group flex items-center gap-2.5 rounded-xl border border-border/70 bg-surface/60 p-2.5 transition-all duration-200 hover:border-primary/50 hover:bg-surface"
+                >
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-card text-primary transition-all duration-200 group-hover:bg-primary group-hover:text-white">
+                    <FaPhone size={13} />
+                  </div>
+                  <div>
+                    <p className="text-[9px] font-semibold uppercase tracking-wider text-text-muted">
+                      Phone
+                    </p>
+                    <p className="text-xs font-medium text-heading group-hover:text-primary-light">
+                      +91 93131 70134
+                    </p>
+                  </div>
+                </a>
 
-                                        <div>
-                                             <p className="text-xs font-semibold uppercase tracking-wider text-text-muted">
-                                                  Email
-                                             </p>
+                <div className="flex items-center gap-2.5 rounded-xl border border-border/70 bg-surface/60 p-2.5">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-card text-primary">
+                    <FaLocationDot size={13} />
+                  </div>
+                  <div>
+                    <p className="text-[9px] font-semibold uppercase tracking-wider text-text-muted">
+                      Location
+                    </p>
+                    <p className="text-xs font-medium text-heading">
+                      Surat, Gujarat, India
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-                                             <a
-                                                  href="https://mail.google.com/mail/?view=cm&fs=1&to=koratkrupa8@gmail.com"
-                                                  target="_blank"
-                                                  className="text-sm font-medium text-heading hover:text-primary"
-                                             >
-                                                  koratkrupa8@gmail.com
-                                             </a>
-                                        </div>
-                                   </div>
+            {/* Social Links */}
+            <div className="mt-4 border-t border-border/60 pt-3">
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-text-muted">
+                Connect With Me
+              </p>
+              <div className="mt-2 flex items-center gap-2">
+                <a
+                  href="https://github.com/koratkrupa84"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg border border-border bg-surface text-text transition-all duration-200 hover:border-primary hover:bg-primary hover:text-white"
+                >
+                  <FaGithub size={14} />
+                </a>
 
-                                   <div className="flex items-center gap-4">
-                                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:text-white">
-                                             <FaPhone size={18} />
-                                        </div>
+                <a
+                  href="https://in.linkedin.com/in/krupa-korat-6590bb3a9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg border border-border bg-surface text-text transition-all duration-200 hover:border-primary hover:bg-primary hover:text-white"
+                >
+                  <FaLinkedinIn size={14} />
+                </a>
+              </div>
+            </div>
+          </div>
 
-                                        <div>
-                                             <p className="text-xs font-semibold uppercase tracking-wider text-text-muted">
-                                                  Phone
-                                             </p>
+          {/* Right Box - Compact Form */}
+          <div className="relative flex h-full flex-col justify-between rounded-2xl border border-border/80 bg-card/60 p- shadow-xl backdrop-blur-md transition-all duration-300 hover:border-primary/40 sm:p-5">
+            <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
 
-                                             <a
-                                                  // href="tel:+919313170134"
-                                                  // target="_blank"
-                                                  className="text-sm font-medium text-heading hover:text-primary"
-                                             >
-                                                  +91 93131 70134
-                                             </a>
-                                        </div>
-                                   </div>
+            {success ? (
+              <div className="flex h-full min-h-[300px] flex-col items-center justify-center text-center">
+                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-primary/15 text-primary">
+                  <IoCheckmarkDoneCircle className="text-3xl" />
+                </div>
+                <h3 className="text-lg font-bold text-heading">Message Sent!</h3>
+                <p className="mt-1 max-w-xs text-xs text-text-muted">
+                  Thank you for reaching out. I'll get back to you soon.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex h-full flex-col justify-between gap-3">
+                <div className="space-y-2.5">
+                  <div>
+                    <label className="mb-1 block text-[10px] font-semibold uppercase tracking-wider text-text-muted">
+                      Your Name
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Jane Doe"
+                      className="w-full rounded-lg border border-border/80 bg-surface/70 px-3 py-1.5 text-xs text-heading placeholder-text-muted/50 outline-none transition-all duration-200 hover:border-border focus:border-primary focus:bg-surface focus:shadow-[0_0_8px_rgba(217,70,239,0.2)]"
+                    />
+                  </div>
 
-                                   <div className="flex items-center gap-4">
-                                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:text-white">
-                                             <FaLocationDot size={18} />
-                                        </div>
+                  <div>
+                    <label className="mb-1 block text-[10px] font-semibold uppercase tracking-wider text-text-muted">
+                      Your Email
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="you@example.com"
+                      className="w-full rounded-lg border border-border/80 bg-surface/70 px-3 py-1.5 text-xs text-heading placeholder-text-muted/50 outline-none transition-all duration-200 hover:border-border focus:border-primary focus:bg-surface focus:shadow-[0_0_8px_rgba(217,70,239,0.2)]"
+                    />
+                  </div>
 
-                                        <div>
-                                             <p className="text-xs font-semibold uppercase tracking-wider text-text-muted">
-                                                  Location
-                                             </p>
+                  <div>
+                    <label className="mb-1 block text-[10px] font-semibold uppercase tracking-wider text-text-muted">
+                      Subject
+                    </label>
+                    <input
+                      type="text"
+                      name="subject"
+                      required
+                      value={formData.subject}
+                      onChange={handleChange}
+                      placeholder="Project subject"
+                      className="w-full rounded-lg border border-border/80 bg-surface/70 px-3 py-1.5 text-xs text-heading placeholder-text-muted/50 outline-none transition-all duration-200 hover:border-border focus:border-primary focus:bg-surface focus:shadow-[0_0_8px_rgba(217,70,239,0.2)]"
+                    />
+                  </div>
 
-                                             <p className="text-sm font-medium text-heading">
-                                                  Surat, Gujarat, India
-                                             </p>
-                                        </div>
-                                   </div>
-                              </div>
+                  <div>
+                    <label className="mb-1 block text-[10px] font-semibold uppercase tracking-wider text-text-muted">
+                      Message
+                    </label>
+                    <textarea
+                      rows={4}
+                      name="message"
+                      required
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Tell me about your project or inquiry..."
+                      className="min-h-[110px] w-full resize-none rounded-lg border border-border/80 bg-surface/70 px-3 py-2 text-xs text-heading placeholder-text-muted/50 outline-none transition-all duration-200 hover:border-border focus:border-primary focus:bg-surface focus:shadow-[0_0_8px_rgba(217,70,239,0.2)]"
+                    />
+                  </div>
+                </div>
 
-                              {/* Social Links */}
-                              <div className="mt-7">
-                                   <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-text-muted">
-                                        Follow Me
-                                   </p>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="mt-1 flex w-full items-center justify-center gap-1.5 rounded-lg bg-gradient-to-r from-primary via-primary to-primary-dark py-2 text-xs font-semibold uppercase tracking-wider text-white shadow-[0_0_12px_rgba(217,70,239,0.25)] transition-all duration-200 hover:shadow-[0_0_18px_rgba(217,70,239,0.45)] disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  <span>{loading ? "Sending..." : "Send Message"}</span>
+                  <FiSend size={12} />
+                </button>
+              </form>
+            )}
+          </div>
 
-                                   <div className="flex items-center gap-3">
-                                        <a
-                                             href="https://github.com/koratkrupa84"
-                                             target="_blank"
-                                             className="flex h-10 w-10 items-center justify-center rounded-full border border-border transition-all duration-300 hover:-translate-y-1 hover:rotate-6 hover:shadow-md text-primary hover:border-primary hover:bg-primary hover:text-white"
-                                        >
-                                             <FaGithub size={18} />
-                                        </a>
-
-                                        <a
-                                             href="https://in.linkedin.com/in/krupa-korat-6590bb3a9"
-                                             target="_blank"
-                                             rel="noopener noreferrer"
-                                             className="flex h-10 w-10 items-center justify-center rounded-full border border-border transition-all duration-300 hover:-translate-y-1 hover:rotate-6 hover:shadow-md text-primary hover:border-primary hover:bg-primary hover:text-white"
-                                        >
-                                             <FaLinkedinIn size={18} />
-                                        </a>
-
-                                        {/* <a
-                                             href="#"
-                                             target="_blank"
-                                             rel="noopener noreferrer"
-                                             className="flex h-10 w-10 items-center justify-center rounded-full border border-border transition-all duration-300 hover:-translate-y-1 hover:rotate-6 hover:shadow-md text-primary hover:border-primary hover:bg-primary hover:text-white"
-                                        >
-                                             <FaInstagram size={18} />
-                                        </a> */}
-                                   </div>
-                              </div>
-                         </div>
-
-                         {/* Contact Form */}
-                         <div className="w-full max-w-xl justify-self-end rounded-2xl border border-border bg-card p-5 shadow-sm md:p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg">
-
-                              {success ? (
-                                   <div className="flex min-h-[420px] flex-col items-center justify-center text-center">
-
-                                        <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
-                                             <IoCheckmarkDoneCircle className="text-7xl text-primary" />
-                                        </div>
-
-                                        <h3 className="text-3xl font-bold text-heading">
-                                             Thank You!
-                                        </h3>
-
-                                        <p className="mt-3 max-w-sm text-text-muted">
-                                             Your message has been sent successfully.
-                                             I'll get back to you as soon as possible.
-                                        </p>
-
-                                   </div>
-                              ) : (
-                                   <form onSubmit={handleSubmit} className="space-y-4">
-                                        <div className="grid gap-4 md:grid-cols-2">
-                                             <div>
-                                                  <label className="mb-1.5 block text-sm font-semibold text-heading">
-                                                       Name
-                                                  </label>
-
-                                                  <input
-                                                       type="text"
-                                                       name="name"
-                                                       value={formData.name}
-                                                       onChange={handleChange}
-                                                       placeholder="Your name"
-                                                       className="w-full rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm text-text outline-none transition-all duration-300 placeholder:text-text-muted focus:border-primary focus:ring-2 focus:ring-primary/10"
-                                                  />
-                                             </div>
-
-                                             <div>
-                                                  <label className="mb-1.5 block text-sm font-semibold text-heading">
-                                                       Email
-                                                  </label>
-
-                                                  <input
-                                                       type="email"
-                                                       name="email"
-                                                       value={formData.email}
-                                                       onChange={handleChange}
-                                                       placeholder="you@example.com"
-                                                       className="w-full rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm text-text outline-none transition-all duration-300 placeholder:text-text-muted focus:border-primary focus:ring-2 focus:ring-primary/10"
-                                                  />
-                                             </div>
-                                        </div>
-
-                                        <div>
-                                             <label className="mb-1.5 block text-sm font-semibold text-heading">
-                                                  Subject
-                                             </label>
-
-                                             <input
-                                                  type="text"
-                                                  name="subject"
-                                                  value={formData.subject}
-                                                  onChange={handleChange}
-                                                  placeholder="Project subject"
-                                                  className="w-full rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm text-text outline-none transition-all duration-300 placeholder:text-text-muted focus:border-primary focus:ring-2 focus:ring-primary/10"
-                                             />
-                                        </div>
-
-                                        <div>
-                                             <label className="mb-1.5 block text-sm font-semibold text-heading">
-                                                  Details
-                                             </label>
-
-                                             <textarea
-                                                  rows={5}
-                                                  name="message"
-                                                  value={formData.message}
-                                                  onChange={handleChange}
-                                                  placeholder="Tell me about your project..."
-                                                  className="w-full resize-none rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm text-text outline-none transition-all duration-300 placeholder:text-text-muted focus:border-primary focus:ring-2 focus:ring-primary/10"
-                                             />
-                                        </div>
-
-                                        <button
-                                             type="submit"
-                                             disabled={loading}
-                                             className="w-full rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-primary-dark hover:shadow-md disabled:cursor-not-allowed disabled:opacity-60">
-                                             {loading ? "Sending..." : "Send Message"}
-                                        </button>
-                                   </form>
-                              )}
-                         </div>
-
-                    </div>
-               </div>
-          </section>
-     );
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default Contact;

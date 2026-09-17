@@ -1,7 +1,6 @@
 import {
   FaGithub,
   FaLinkedinIn,
-  FaInstagram,
   FaArrowUp,
   FaArrowRight,
   FaEnvelope,
@@ -9,111 +8,102 @@ import {
 } from "react-icons/fa";
 
 function Footer() {
+  const quickLinks = [
+    { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
+    { label: "Experience", href: "#experience" },
+    { label: "Portfolio", href: "#portfolio" },
+    { label: "Contact", href: "#contact" },
+  ];
+
   return (
-    <footer className="border-t border-white/10 bg-primary-dark text-white">
-      <div className="container mx-auto px-5 py-14">
+    <footer className="relative overflow-hidden border-t border-border/80 bg-surface/90 text-text">
+      {/* Background Neon Glow Accent */}
+      <div className="pointer-events-none absolute left-1/2 top-0 h-40 w-96 -translate-x-1/2 rounded-full bg-primary/10 blur-[100px]" />
 
-        {/* Main Footer */}
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-
-          {/* Brand */}
+      <div className="container relative mx-auto max-w-6xl px-5 py-12 md:py-14">
+        {/* Main Footer Grid */}
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          
+          {/* Brand Column */}
           <div className="lg:col-span-2">
-            {/* Existing Logo + Info */}
-            <div className="flex items-center gap-4">
-              <a href="#home" className="group shrink-0">
+            <div className="flex items-center gap-3.5">
+              <a
+                href="#home"
+                className="group flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border bg-card/60 transition-all duration-300 hover:border-primary/60 hover:shadow-[0_0_15px_rgba(217,70,239,0.3)]"
+              >
                 <img
-                  src="/assets/krupalogo.png"
+                  src="/assets/logo (3).png"
                   alt="Krupa Korat"
-                  className="h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+                  className="h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-110"
+                />
               </a>
 
-              <div className="border-l border-white/10 pl-4">
-                <p className="text-sm font-semibold text-white">
+              <div className="border-l border-border/80 pl-3.5">
+                <p className="text-sm font-bold tracking-wide text-heading">
                   Krupa Korat
                 </p>
-
-                <p className="mt-1 text-xs text-white/50">
+                <p className="text-xs font-medium text-primary-light">
                   Full Stack Developer
                 </p>
-
-                {/* <div className="mt-2 flex flex-wrap gap-2 text-[11px] text-white/40">
-                  <span>React</span>
-                  <span>•</span>
-                  <span>Node.js</span>
-                  <span>•</span>
-                  <span>MongoDB</span>
-                </div> */}
               </div>
             </div>
 
-            {/* Content Below */}
-            <div className="mt-6 max-w-md">
-              <p className="text-sm leading-7 text-white/55">
-                I build modern and scalable web applications with a focus
-                on clean design, smooth user experiences and reliable
-                functionality.
-              </p>
+            <p className="mt-4 max-w-md text-xs leading-relaxed text-text-muted sm:text-sm">
+              I build modern, scalable web applications with a focus on clean code, responsive design, and intuitive user experiences.
+            </p>
 
-              <a
-                href="#contact"
-                className="group mt-4 inline-flex items-center gap-2 text-sm font-medium text-white/70 transition-colors duration-300 hover:text-white">
-                Let's work together
-                <span className=" transition-transform duration-300 group-hover:translate-x-1">
-                  <FaArrowRight size={14} />
-                </span>
-              </a>
-            </div>
+            <a
+              href="#contact"
+              className="group mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-text transition-colors duration-300 hover:text-primary-light"
+            >
+              <span>Let's work together</span>
+              <FaArrowRight
+                size={12}
+                className="text-primary transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </a>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="mb-5 text-sm font-semibold uppercase tracking-[0.18em] text-white">
+            <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-heading">
               Quick Links
             </h3>
-
-            <nav className="flex flex-col items-start gap-3">
-              {[
-                ["Home", "#home"],
-                ["About", "#about"],
-                ["Experience", "#experience"],
-                ["Portfolio", "#portfolio"],
-                ["Contact", "#contact"],
-              ].map(([label, href]) => (
+            <nav className="flex flex-col items-start gap-2.5">
+              {quickLinks.map((item) => (
                 <a
-                  key={label}
-                  href={href}
-                  className="group flex items-center gap-2 text-sm text-white/60 transition-all duration-300 hover:translate-x-1 hover:text-white">
-                  <span className="text-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    <FaArrowRight size={13} />
+                  key={item.label}
+                  href={item.href}
+                  className="group flex items-center gap-2 text-xs text-text-muted transition-all duration-200 hover:translate-x-1 hover:text-heading sm:text-sm"
+                >
+                  <span className="text-primary opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                    <FaArrowRight size={10} />
                   </span>
-
-                  {label}
+                  {item.label}
                 </a>
               ))}
             </nav>
           </div>
 
-          {/* Connect */}
+          {/* Connect Column */}
           <div>
-            <h3 className="mb-5 text-sm font-semibold uppercase tracking-[0.18em] text-white">
+            <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-heading">
               Let's Connect
             </h3>
-
-            <p className="mb-5 text-sm leading-6 text-white/60">
-              Have a project or opportunity in mind?
-              Feel free to get in touch.
+            <p className="mb-4 text-xs leading-relaxed text-text-muted sm:text-sm">
+              Have a project or opportunity in mind? Feel free to reach out anytime.
             </p>
 
-            {/* Social Icons */}
-            <div className="flex items-center gap-3">
-
+            <div className="flex items-center gap-2.5">
               <a
                 href="https://github.com/koratkrupa84"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/70 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white hover:text-primary-dark hover:shadow-lg " >
-                <FaGithub size={17} />
+                className="flex h-9 w-9 items-center justify-center rounded-xl border border-border/80 bg-card/70 text-text transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:bg-primary hover:text-white hover:shadow-[0_0_12px_#D946EF]"
+              >
+                <FaGithub size={15} />
               </a>
 
               <a
@@ -121,54 +111,46 @@ function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/70 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white hover:text-primary-dark hover:shadow-lg " >
-                <FaLinkedinIn size={17} />
+                className="flex h-9 w-9 items-center justify-center rounded-xl border border-border/80 bg-card/70 text-text transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:bg-primary hover:text-white hover:shadow-[0_0_12px_#D946EF]"
+              >
+                <FaLinkedinIn size={15} />
               </a>
-
-              {/* <a
-                href="https://instagram.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/70 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white hover:text-primary-dark hover:shadow-lg " >
-                <FaInstagram size={17} />
-              </a> */}
 
               <a
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=koratkrupa8@gmail.com"
                 target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Email"
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/70 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white hover:text-primary-dark hover:shadow-lg " >
-                <FaEnvelope size={17} />
+                className="flex h-9 w-9 items-center justify-center rounded-xl border border-border/80 bg-card/70 text-text transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:bg-primary hover:text-white hover:shadow-[0_0_12px_#D946EF]"
+              >
+                <FaEnvelope size={15} />
               </a>
-
             </div>
           </div>
+
         </div>
 
-        {/* Bottom */}
-        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
-          <p className="text-xs text-white/40">
-            © 2026 Krupa Korat. All rights reserved.
-          </p>
+        {/* Bottom Bar */}
+        <div className="mt-10 flex flex-col gap-4 border-t border-border/60 pt-5 text-xs text-text-muted/70 md:flex-row md:items-center md:justify-between">
+          <p>© 2026 Krupa Korat. All rights reserved.</p>
 
-          <p className="text-xs text-white/40">
-            Designed &amp; Developed with{" "}
+          <p className="flex items-center gap-1.5">
+            <span>Designed &amp; Developed with</span>
             <span className="inline-flex animate-pulse text-primary">
-              <FaHeart size={10} />
-            </span>{" "}
-            by Krupa Korat
+              <FaHeart size={11} />
+            </span>
+            <span>by Krupa Korat</span>
           </p>
 
-          {/* Back To Top */}
+          {/* Back To Top Button */}
           <a
             href="#home"
             aria-label="Back to top"
-            className="flex h-9 w-9 items-center justify-center self-start rounded-lg border border-white/10 text-white/60 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white hover:text-primary-dark md:self-auto">
-            <FaArrowUp size={14} />
+            className="flex h-8 w-8 items-center justify-center self-start rounded-lg border border-border/80 bg-card/60 text-text-muted transition-all duration-300 hover:-translate-y-1 hover:border-primary/60 hover:bg-primary hover:text-white hover:shadow-[0_0_10px_#D946EF] md:self-auto"
+          >
+            <FaArrowUp size={12} />
           </a>
         </div>
-
       </div>
     </footer>
   );
