@@ -103,7 +103,8 @@ function Hero() {
             <div className="group relative">
               <div className="relative overflow-hidden rounded-3xl border-2 border-border/80 bg-card/60 p-1.5 shadow-2xl transition-all duration-500 hover:border-primary/60 hover:shadow-[0_0_35px_rgba(217,70,239,0.25)]">
                 <img
-                  src="/assets/images/krupa.jpeg"
+                  // src="/assets/images/krupa.jpeg"
+                  src="/assets/images/krupa1.png"
                   alt="Krupa Korat"
                   className="h-auto w-full max-w-[270px] rounded-[22px] object-cover transition-transform duration-500 group-hover:scale-[1.02] sm:max-w-xs md:max-w-sm"
                 />
