@@ -1,22 +1,209 @@
 @import "tailwindcss";
-
 @theme {
-  /* Backgrounds */
-  --color-background: #0D0A14;     
-  --color-surface: #171124;        
-  --color-card: #211A31;         
-
-  /* Brand / Accents (Neon Fuchsia & Pink) */
-  --color-primary: #D946EF;        
-  --color-primary-dark: #C026D3;     
-  --color-primary-light: #F472B6;   
-
-  /* Text */
-  --color-heading: #FAF5FF;         
-  --color-text: #E9D5FF;             
-  --color-text-muted: #A855F7;       
-
-  /* UI */
-  --color-border: #3B2D54;          
+  /* ========================================
+     BRAND — DEEP CRIMSON
+  ======================================== */
+  --color-primary: #C1121F;
+  --color-primary-dark: #8F0D17;
+  --color-primary-light: #E63946;
+  /* ========================================
+     LIGHT — WHITE DOMINANT
+  ======================================== */
+  --color-background: #FFFFFF;
+  --color-surface: #F7F7F7;
+  --color-card: #FFFFFF;
+  --color-heading: #050505;
+  --color-text: #171717;
+  --color-text-muted: #6B6B6B;
+  --color-border: #DCDCDC;
   --color-white: #FFFFFF;
+  /* ========================================
+     DARK — BLACK DOMINANT
+  ======================================== */
+}
+.dark {
+  --color-background: #050505;
+  --color-surface: #101010;
+  --color-card: #151515;
+  --color-heading: #FFFFFF;
+  --color-text: #EAEAEA;
+  --color-text-muted: #999999;
+  --color-border: #2A2A2A;
+}
+/* ========================================
+   BASE
+======================================== */
+html {
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+  overflow-x: hidden;
+}
+/* ========================================
+   RED ACCENT MOTION
+======================================== */
+@keyframes red-pulse {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.08);
+  }
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes line-grow {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+.animate-red-pulse {
+  animation: red-pulse 3s ease-in-out infinite;
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+/* ========================================
+   MINIMAL 3D
+======================================== */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+/* ========================================
+   EDITORIAL CARD
+======================================== */
+.card-3d {
+  transition:
+    transform 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 0.3s ease;
+}
+.card-3d:hover {
+  transform:
+    translateY(-6px)
+    rotateX(1deg)
+    rotateY(-1deg);
+}
+/* ========================================
+   RED ACCENT
+======================================== */
+.red-accent {
+  color: var(--color-primary);
+}
+.red-border {
+  border-color: var(--color-primary);
+}
+/* ========================================
+   RED UNDERLINE
+======================================== */
+.red-underline {
+  position: relative;
+}
+.red-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 35%;
+  height: 3px;
+  background: var(--color-primary);
+  transition: width 0.4s ease;
+}
+.red-underline:hover::after {
+  width: 100%;
+}
+/* ========================================
+   EDITORIAL HOVER
+======================================== */
+.editorial-hover {
+  transition:
+    color 0.3s ease,
+    padding-left 0.3s ease;
+}
+.editorial-hover:hover {
+  color: var(--color-primary);
+  padding-left: 8px;
+}
+/* ========================================
+   RED GLOW — VERY SUBTLE
+======================================== */
+.red-glow {
+  box-shadow:
+    0 10px 40px rgba(193, 18, 31, 0.12);
+}
+/* ========================================
+   SELECTION
+======================================== */
+::selection {
+  background: var(--color-primary);
+  color: #FFFFFF;
+}
+
+/* ========================================
+   ENHANCED 3D + DEPTH
+======================================== */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.card-3d {
+  transform-style: preserve-3d;
+}
+
+.card-3d:hover {
+  box-shadow: 0 16px 40px rgba(193, 18, 31, 0.1);
+}
+
+/* Soft depth for sections */
+.section-depth {
+  position: relative;
+}
+
+.section-depth::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(193, 18, 31, 0.04), transparent 60%);
+  pointer-events: none;
+}
+
+/* ========================================
+   MOBILE FRIENDLY
+======================================== */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+@media (max-width: 768px) {
+  .card-3d:hover {
+    transform: none;
+  }
+
+  /* Safer touch targets */
+  button, a {
+    min-height: 44px;
+  }
 }

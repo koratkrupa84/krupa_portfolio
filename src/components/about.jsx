@@ -31,16 +31,16 @@ const skills = [
 
 function About() {
   return (
-    <section id="about" className="relative overflow-hidden bg-background py-24">
+    <section id="about" className="relative overflow-hidden bg-background py-14 sm:py-20 md:py-24">
       {/* Background Ambient Glows */}
       <div className="pointer-events-none absolute -right-20 top-1/4 h-80 w-80 rounded-full bg-primary/10 blur-[120px]" />
       <div className="pointer-events-none absolute -left-20 bottom-1/4 h-80 w-80 rounded-full bg-primary-dark/15 blur-[120px]" />
 
-      <div className="container relative mx-auto px-5 sm:px-6 lg:px-12">
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-12">
         {/* About Header */}
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/60 px-4 py-1.5 backdrop-blur-md">
-            <span className="h-2 w-2 rounded-full bg-primary shadow-[0_0_8px_#D946EF]" />
+            <span className="h-2 w-2 rounded-full bg-primary shadow-[0_0_8px_#C1121F]" />
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-light">
               About Me
             </span>
@@ -48,7 +48,7 @@ function About() {
 
           <h2 className="mt-4 text-3xl font-extrabold leading-tight text-heading sm:text-4xl lg:text-5xl">
             Turning Ideas Into{" "}
-            <span className="bg-gradient-to-r from-primary via-primary-light to-white bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent">
               Digital Experiences
             </span>
           </h2>
@@ -87,7 +87,7 @@ function About() {
             {skills.map((item, index) => (
               <div
                 key={item.category}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border/80 bg-card/60 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:bg-card/90 hover:shadow-[0_0_25px_rgba(217,70,239,0.15)]"
+                className="card-3d group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border/80 bg-card/70 p-6 backdrop-blur-sm hover:border-primary/50 hover:bg-card hover:shadow-[0_20px_40px_rgba(193,18,31,0.15)]"
               >
                 {/* Top Subtle Light Line on Card Hover */}
                 <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -108,7 +108,7 @@ function About() {
                     {item.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="rounded-lg border border-border/60 bg-surface/70 px-3 py-1.5 text-xs font-medium text-text transition-all duration-200 group-hover:border-primary/30 group-hover:bg-surface hover:!border-primary hover:!text-primary-light hover:!shadow-[0_0_8px_rgba(217,70,239,0.25)]"
+                        className="rounded-lg border border-border/60 bg-surface/70 px-3 py-1.5 text-xs font-medium text-text transition-all duration-200 group-hover:border-primary/30 group-hover:bg-surface hover:!border-primary hover:!text-primary-light hover:!shadow-[0_0_8px_rgba(193,18,31,0.25)]"
                       >
                         {skill}
                       </span>

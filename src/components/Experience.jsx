@@ -31,16 +31,16 @@ function Experience() {
   ];
 
   return (
-    <section id="experience" className="relative overflow-hidden bg-background py-16 md:py-20">
+    <section id="experience" className="relative overflow-hidden bg-background py-12 sm:py-16 md:py-20">
       {/* Background Ambient Glows */}
       <div className="pointer-events-none absolute -left-20 top-1/4 h-72 w-72 rounded-full bg-primary/15 blur-[110px]" />
       <div className="pointer-events-none absolute -right-20 bottom-10 h-72 w-72 rounded-full bg-primary-dark/20 blur-[110px]" />
 
-      <div className="container relative mx-auto max-w-4xl px-4 sm:px-6">
+      <div className="container relative mx-auto max-w-4xl px-3 sm:px-6">
         {/* Header */}
         <div className="mb-12 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/60 px-3.5 py-1 backdrop-blur-md">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_6px_#D946EF]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_6px_#C1121F]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary-light">
               Work Experience
             </span>
@@ -48,7 +48,7 @@ function Experience() {
 
           <h2 className="mt-3 text-2xl font-extrabold text-heading sm:text-3xl md:text-4xl">
             Experience &{" "}
-            <span className="bg-gradient-to-r from-primary via-primary-light to-white bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent">
               Journey
             </span>
           </h2>
@@ -68,7 +68,7 @@ function Experience() {
                 key={index}
                 className={`relative overflow-hidden rounded-2xl border transition-all duration-300 ${
                   isOpen
-                    ? "border-primary/50 bg-card/80 shadow-[0_0_20px_rgba(217,70,239,0.15)] backdrop-blur-md"
+                    ? "border-primary/50 bg-card/80 shadow-[0_0_20px_rgba(193,18,31,0.15)] backdrop-blur-md"
                     : "border-border/80 bg-card/40 hover:border-border hover:bg-card/60"
                 }`}
               >
@@ -88,7 +88,7 @@ function Experience() {
                     <div
                       className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border text-sm font-bold transition-all duration-300 ${
                         isOpen
-                          ? "border-primary/60 bg-primary/20 text-primary-light shadow-[0_0_10px_rgba(217,70,239,0.3)]"
+                          ? "border-primary/60 bg-primary/20 text-primary-light shadow-[0_0_10px_rgba(193,18,31,0.3)]"
                           : "border-border/70 bg-surface/80 text-text-muted"
                       }`}
                     >
@@ -126,7 +126,7 @@ function Experience() {
                     <span
                       className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border text-sm transition-all duration-300 ${
                         isOpen
-                          ? "rotate-45 border-primary bg-primary text-white shadow-[0_0_10px_#D946EF]"
+                          ? "rotate-45 border-primary bg-primary text-white shadow-[0_0_10px_#C1121F]"
                           : "border-border/80 bg-surface/70 text-text-muted hover:border-primary/50 hover:text-heading"
                       }`}
                     >
@@ -147,7 +147,7 @@ function Experience() {
                       <ul className="space-y-2">
                         {experience.description.map((item, i) => (
                           <li key={i} className="flex items-start gap-2.5 text-xs leading-relaxed text-text/80 sm:text-sm">
-                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary shadow-[0_0_6px_#D946EF]" />
+                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary shadow-[0_0_6px_#C1121F]" />
                             <span>{item}</span>
                           </li>
                         ))}

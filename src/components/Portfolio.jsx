@@ -87,16 +87,16 @@ function Portfolio() {
   };
 
   return (
-    <section id="portfolio" className="relative overflow-hidden bg-background py-16 md:py-20">
+    <section id="portfolio" className="relative overflow-hidden bg-background py-12 sm:py-16 md:py-20">
       {/* Background Ambient Glows */}
       <div className="pointer-events-none absolute -left-20 top-1/3 h-80 w-80 rounded-full bg-primary/15 blur-[120px]" />
       <div className="pointer-events-none absolute -right-20 bottom-1/4 h-80 w-80 rounded-full bg-primary-dark/20 blur-[120px]" />
 
-      <div className="container relative mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="container relative mx-auto max-w-6xl px-3 sm:px-6">
         {/* Section Header */}
         <div className="mb-12 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/60 px-3.5 py-1 backdrop-blur-md">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_6px_#D946EF]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_6px_#C1121F]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary-light">
               My Work
             </span>
@@ -104,7 +104,7 @@ function Portfolio() {
 
           <h2 className="mt-3 text-2xl font-extrabold leading-tight text-heading sm:text-3xl md:text-4xl">
             Featured{" "}
-            <span className="bg-gradient-to-r from-primary via-primary-light to-white bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent">
               Projects
             </span>
           </h2>
@@ -120,7 +120,7 @@ function Portfolio() {
             <div
               key={index}
               onClick={() => openProject(project)}
-              className="group relative cursor-pointer overflow-hidden rounded-2xl border border-border/80 bg-card/60 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:bg-card/90 hover:shadow-[0_0_25px_rgba(217,70,239,0.18)]"
+              className="card-3d group relative cursor-pointer overflow-hidden rounded-2xl border border-border/80 bg-card/70 backdrop-blur-md hover:border-primary/50 hover:bg-card hover:shadow-[0_20px_40px_rgba(193,18,31,0.2)]"
             >
               {/* Subtle top neon line on hover */}
               <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -179,7 +179,7 @@ function Portfolio() {
             onClick={closeProject}
           >
             <div
-              className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-border/80 bg-surface/95 p-5 shadow-[0_0_40px_rgba(0,0,0,0.7)] ring-1 ring-primary/30 backdrop-blur-xl sm:p-7"
+              className="relative mx-3 max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-border/80 bg-surface/95 p-4 shadow-[0_0_40px_rgba(0,0,0,0.7)] ring-1 ring-primary/30 backdrop-blur-xl sm:mx-4 sm:p-7"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
@@ -247,7 +247,7 @@ function Portfolio() {
                       key={index}
                       className="flex items-start gap-2.5 text-xs text-text/80 sm:text-sm"
                     >
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary shadow-[0_0_6px_#D946EF]" />
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary shadow-[0_0_6px_#C1121F]" />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -277,7 +277,7 @@ function Portfolio() {
                     }}
                     className={`inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all sm:w-auto ${
                       selectedProject.liveUrl
-                        ? "bg-gradient-to-r from-primary to-primary-dark text-white shadow-[0_0_15px_rgba(217,70,239,0.3)] hover:shadow-[0_0_22px_rgba(217,70,239,0.5)]"
+                        ? "bg-gradient-to-r from-primary to-primary-dark text-white shadow-[0_0_15px_rgba(193,18,31,0.3)] hover:shadow-[0_0_22px_rgba(193,18,31,0.5)]"
                         : "cursor-not-allowed border border-border/70 bg-card/60 text-text-muted/60"
                     }`}
                   >

@@ -21,7 +21,7 @@ function Footer() {
       {/* Background Neon Glow Accent */}
       <div className="pointer-events-none absolute left-1/2 top-0 h-40 w-96 -translate-x-1/2 rounded-full bg-primary/10 blur-[100px]" />
 
-      <div className="container relative mx-auto max-w-6xl px-5 py-12 md:py-14">
+      <div className="container relative mx-auto max-w-6xl px-4 py-10 sm:px-5 sm:py-12 md:py-14">
         {/* Main Footer Grid */}
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           
@@ -30,7 +30,7 @@ function Footer() {
             <div className="flex items-center gap-3.5">
               <a
                 href="#home"
-                className="group flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border bg-card/60 transition-all duration-300 hover:border-primary/60 hover:shadow-[0_0_15px_rgba(217,70,239,0.3)]"
+                className="group flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border bg-card/60 transition-all duration-300 hover:border-primary/60 hover:shadow-[0_0_15px_rgba(193,18,31,0.3)]"
               >
                 <img
                   src="/assets/logo (3).png"
@@ -101,7 +101,7 @@ function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="flex h-9 w-9 items-center justify-center rounded-xl border border-border/80 bg-card/70 text-text transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:bg-primary hover:text-white hover:shadow-[0_0_12px_#D946EF]"
+                className="flex h-9 w-9 items-center justify-center rounded-xl border border-border/80 bg-card/70 text-text transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:bg-primary hover:text-white hover:shadow-[0_0_12px_#C1121F]"
               >
                 <FaGithub size={15} />
               </a>
@@ -111,7 +111,7 @@ function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="flex h-9 w-9 items-center justify-center rounded-xl border border-border/80 bg-card/70 text-text transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:bg-primary hover:text-white hover:shadow-[0_0_12px_#D946EF]"
+                className="flex h-9 w-9 items-center justify-center rounded-xl border border-border/80 bg-card/70 text-text transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:bg-primary hover:text-white hover:shadow-[0_0_12px_#C1121F]"
               >
                 <FaLinkedinIn size={15} />
               </a>
@@ -121,7 +121,7 @@ function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Email"
-                className="flex h-9 w-9 items-center justify-center rounded-xl border border-border/80 bg-card/70 text-text transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:bg-primary hover:text-white hover:shadow-[0_0_12px_#D946EF]"
+                className="flex h-9 w-9 items-center justify-center rounded-xl border border-border/80 bg-card/70 text-text transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:bg-primary hover:text-white hover:shadow-[0_0_12px_#C1121F]"
               >
                 <FaEnvelope size={15} />
               </a>
@@ -146,7 +146,7 @@ function Footer() {
           <a
             href="#home"
             aria-label="Back to top"
-            className="flex h-8 w-8 items-center justify-center self-start rounded-lg border border-border/80 bg-card/60 text-text-muted transition-all duration-300 hover:-translate-y-1 hover:border-primary/60 hover:bg-primary hover:text-white hover:shadow-[0_0_10px_#D946EF] md:self-auto"
+            className="flex h-8 w-8 items-center justify-center self-start rounded-lg border border-border/80 bg-card/60 text-text-muted transition-all duration-300 hover:-translate-y-1 hover:border-primary/60 hover:bg-primary hover:text-white hover:shadow-[0_0_10px_#C1121F] md:self-auto"
           >
             <FaArrowUp size={12} />
           </a>

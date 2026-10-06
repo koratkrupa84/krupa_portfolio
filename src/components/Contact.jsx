@@ -65,12 +65,33 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="relative overflow-hidden bg-background py-8 sm:py-12 md:py-14">
+    <section id="contact" className="relative overflow-hidden bg-background py-12 sm:py-16 md:py-20">
       {/* Background Ambient Glows */}
       <div className="pointer-events-none absolute -left-16 top-1/4 h-48 w-48 rounded-full bg-primary/15 blur-[80px] sm:h-60 sm:w-60 sm:blur-[90px]" />
       <div className="pointer-events-none absolute -right-16 bottom-10 h-48 w-48 rounded-full bg-primary-dark/20 blur-[80px] sm:h-60 sm:w-60 sm:blur-[90px]" />
 
       <div className="container relative mx-auto max-w-4xl px-3 sm:px-6">
+        {/* Section Header */}
+        <div className="mb-10 text-center sm:mb-12">
+          <div className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/60 px-3.5 py-1 backdrop-blur-md">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_6px_#C1121F]" />
+            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary-light">
+              Contact
+            </span>
+          </div>
+
+          <h2 className="mt-3 text-2xl font-extrabold leading-tight text-heading sm:text-3xl md:text-4xl">
+            Get In{" "}
+            <span className="bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent">
+              Touch
+            </span>
+          </h2>
+
+          <p className="mx-auto mt-2 max-w-xl text-xs leading-relaxed text-text/80 sm:text-sm">
+            Have an idea, project, or an opportunity? Feel free to reach out. I'd love to collaborate.
+          </p>
+        </div>
+
         <div className="grid items-stretch gap-4 sm:gap-5 lg:grid-cols-2">
 
           {/* Left Box - Compact Details */}
@@ -78,22 +99,15 @@ function Contact() {
             <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
 
             <div>
-              <div className="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-surface/70 px-2.5 py-0.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_6px_#D946EF]" />
-                <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary-light">
-                  Get In Touch
-                </span>
-              </div>
-
-              <h2 className="mt-2 text-lg font-bold leading-tight text-heading sm:text-xl md:text-2xl">
+              <h3 className="text-lg font-bold leading-tight text-heading sm:text-xl">
                 Let's talk about your{" "}
-                <span className="bg-gradient-to-r from-primary via-primary-light to-white bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent">
                   next project.
                 </span>
-              </h2>
+              </h3>
 
               <p className="mt-1.5 text-xs leading-relaxed text-text/80">
-                Have an idea, project, or an opportunity? Feel free to reach out. I'd love to collaborate.
+                Drop a message and I'll get back to you as soon as possible.
               </p>
 
               {/* Contact Info Items */}
@@ -207,7 +221,7 @@ function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Jane Doe"
-                      className="w-full rounded-lg border border-border/80 bg-surface/70 px-3 py-2 text-base text-heading placeholder-text-muted/50 outline-none transition-all duration-200 hover:border-border focus:border-primary focus:bg-surface focus:shadow-[0_0_8px_rgba(217,70,239,0.2)] sm:py-1.5 sm:text-xs"
+                      className="w-full rounded-lg border border-border/80 bg-surface/70 px-3 py-2 text-base text-heading placeholder-text-muted/50 outline-none transition-all duration-200 hover:border-border focus:border-primary focus:bg-surface focus:shadow-[0_0_8px_rgba(193,18,31,0.2)] sm:py-1.5 sm:text-xs"
                     />
                   </div>
 
@@ -222,7 +236,7 @@ function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="you@example.com"
-                      className="w-full rounded-lg border border-border/80 bg-surface/70 px-3 py-2 text-base text-heading placeholder-text-muted/50 outline-none transition-all duration-200 hover:border-border focus:border-primary focus:bg-surface focus:shadow-[0_0_8px_rgba(217,70,239,0.2)] sm:py-1.5 sm:text-xs"
+                      className="w-full rounded-lg border border-border/80 bg-surface/70 px-3 py-2 text-base text-heading placeholder-text-muted/50 outline-none transition-all duration-200 hover:border-border focus:border-primary focus:bg-surface focus:shadow-[0_0_8px_rgba(193,18,31,0.2)] sm:py-1.5 sm:text-xs"
                     />
                   </div>
 
@@ -237,7 +251,7 @@ function Contact() {
                       value={formData.subject}
                       onChange={handleChange}
                       placeholder="Project subject"
-                      className="w-full rounded-lg border border-border/80 bg-surface/70 px-3 py-2 text-base text-heading placeholder-text-muted/50 outline-none transition-all duration-200 hover:border-border focus:border-primary focus:bg-surface focus:shadow-[0_0_8px_rgba(217,70,239,0.2)] sm:py-1.5 sm:text-xs"
+                      className="w-full rounded-lg border border-border/80 bg-surface/70 px-3 py-2 text-base text-heading placeholder-text-muted/50 outline-none transition-all duration-200 hover:border-border focus:border-primary focus:bg-surface focus:shadow-[0_0_8px_rgba(193,18,31,0.2)] sm:py-1.5 sm:text-xs"
                     />
                   </div>
 
@@ -252,7 +266,7 @@ function Contact() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Tell me about your project or inquiry..."
-                      className="min-h-[90px] w-full resize-none rounded-lg border border-border/80 bg-surface/70 px-3 py-2 text-base text-heading placeholder-text-muted/50 outline-none transition-all duration-200 hover:border-border focus:border-primary focus:bg-surface focus:shadow-[0_0_8px_rgba(217,70,239,0.2)] sm:min-h-[110px] sm:text-xs"
+                      className="min-h-[90px] w-full resize-none rounded-lg border border-border/80 bg-surface/70 px-3 py-2 text-base text-heading placeholder-text-muted/50 outline-none transition-all duration-200 hover:border-border focus:border-primary focus:bg-surface focus:shadow-[0_0_8px_rgba(193,18,31,0.2)] sm:min-h-[110px] sm:text-xs"
                     />
                   </div>
                 </div>
@@ -260,7 +274,7 @@ function Contact() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="mt-1 flex min-h-[42px] w-full items-center justify-center gap-1.5 rounded-lg bg-gradient-to-r from-primary via-primary to-primary-dark py-2 text-xs font-semibold uppercase tracking-wider text-white shadow-[0_0_12px_rgba(217,70,239,0.25)] transition-all duration-200 hover:shadow-[0_0_18px_rgba(217,70,239,0.45)] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60"
+                  className="mt-1 flex min-h-[42px] w-full items-center justify-center gap-1.5 rounded-lg bg-gradient-to-r from-primary via-primary to-primary-dark py-2 text-xs font-semibold uppercase tracking-wider text-white shadow-[0_0_12px_rgba(193,18,31,0.25)] transition-all duration-200 hover:shadow-[0_0_18px_rgba(193,18,31,0.45)] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   <span>{loading ? "Sending..." : "Send Message"}</span>
                   <FiSend size={12} />

@@ -40,7 +40,7 @@ function Preloader({ isLoaded, onFinish }) {
     >
       {/* Background Cyber Ambient Glows */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-[130px]" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(#3B2D54_1px,transparent_1px)] [background-size:24px_24px] opacity-25" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(var(--color-border)_1px,transparent_1px)] [background-size:24px_24px] opacity-25" />
 
       {/* Top Header */}
       <div className="relative z-10 flex items-center gap-2 rounded-full border border-border/80 bg-card/60 px-4 py-1.5 backdrop-blur-md">
@@ -60,7 +60,7 @@ function Preloader({ isLoaded, onFinish }) {
             <div
               className={`flex h-16 w-16 items-center justify-center rounded-2xl border transition-all duration-500 sm:h-20 sm:w-20 ${
                 activeStage >= 1
-                  ? "border-primary bg-card text-primary shadow-[0_0_20px_rgba(217,70,239,0.35)] scale-105"
+                  ? "border-primary bg-card text-primary shadow-[0_0_20px_rgba(193,18,31,0.35)] scale-105"
                   : "border-border bg-surface text-text-muted opacity-50"
               }`}
             >
@@ -86,7 +86,7 @@ function Preloader({ isLoaded, onFinish }) {
             <div
               className={`flex h-16 w-16 items-center justify-center rounded-2xl border transition-all duration-500 sm:h-20 sm:w-20 ${
                 activeStage >= 2
-                  ? "border-primary bg-card text-primary shadow-[0_0_20px_rgba(217,70,239,0.35)] scale-105"
+                  ? "border-primary bg-card text-primary shadow-[0_0_20px_rgba(193,18,31,0.35)] scale-105"
                   : "border-border bg-surface text-text-muted opacity-50"
               }`}
             >
@@ -112,7 +112,7 @@ function Preloader({ isLoaded, onFinish }) {
             <div
               className={`flex h-16 w-16 items-center justify-center rounded-2xl border transition-all duration-500 sm:h-20 sm:w-20 ${
                 activeStage >= 3
-                  ? "border-primary bg-card text-primary shadow-[0_0_20px_rgba(217,70,239,0.35)] scale-105"
+                  ? "border-primary bg-card text-primary shadow-[0_0_20px_rgba(193,18,31,0.35)] scale-105"
                   : "border-border bg-surface text-text-muted opacity-50"
               }`}
             >

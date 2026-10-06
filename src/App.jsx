@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
+import { ThemeProvider } from "./context/ThemeContext";
 import Preloader from "./components/Preloader";
+import Intro3D from "./components/Intro3D";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/about";
@@ -10,7 +12,7 @@ import Footer from "./components/Footer";
 
 import "./App.css";
 
-function App() {
+function AppContent() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [showPreloader, setShowPreloader] = useState(true);
 
@@ -42,6 +44,7 @@ function App() {
         }`}
       >
         <Navbar />
+        <Intro3D />
         <Hero />
         <About />
         <Experience />
@@ -50,6 +53,14 @@ function App() {
         <Footer />
       </div>
     </>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 }
 
